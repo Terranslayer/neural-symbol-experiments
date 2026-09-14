@@ -1,0 +1,52 @@
+{
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/env/reset",
+      "request": { "K": "integer", "seed": "integer?" },
+      "response": { "episode_id": "string", "K": "integer" }
+    },
+    {
+      "method": "POST",
+      "path": "/agent/allocate",
+      "request": { "D": "integer", "R": "integer" },
+      "response": { "success": "boolean" },
+      "validation": "D + R must equal K"
+    },
+    {
+      "method": "POST",
+      "path": "/agent/observe",
+      "request": {
+        "episode_id": "string",
+        "mode": {
+          "ingest": { "stream": "array" },
+          "generate?": { "length": "integer", "noise": "object?" }
+        }
+      },
+      "response": { "ok": "boolean" }
+    },
+    {
+      "method": "POST",
+      "path": "/agent/encode",
+      "request": { "episode_id": "string" },
+      "response": { "S": "array<string>", "dictionary": "object" }
+    },
+    {
+      "method": "POST",
+      "path": "/agent/decode",
+      "request": { "S": "array<string>" },
+      "response": { "N_hat": "integer" }
+    },
+    {
+      "method": "GET",
+      "path": "/eval/metrics",
+      "params": { "episode_id": "string" },
+      "response": {
+        "accuracy": "float",
+        "compression_ratio": "float",
+        "robustness": "float",
+        "memory_usage": { "D": "integer", "R": "integer" }
+      }
+    }
+  ]
+}
