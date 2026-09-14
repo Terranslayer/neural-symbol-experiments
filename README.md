@@ -2,7 +2,7 @@
 
 Independent Python and PyTorch experiments on how neural agents encode quantities in limited memory and use those representations for comparison tasks.
 
-This focused copy of my SymbolicAI work contains model implementations, scene generators, training and evaluation code, diagnostics, and tests. It complements [SymbolEmergence](https://github.com/Terranslayer/SymbolEmergence), which studies transfer to a newly trained reader.
+This focused copy of my SymbolicAI work contains model implementations, scene generators, training and evaluation code, diagnostics, and tests. It complements [SymbolEmergence](https://github.com/Terranslayer/learned-number-representations), which studies transfer to a newly trained reader.
 
 ## Questions explored
 
